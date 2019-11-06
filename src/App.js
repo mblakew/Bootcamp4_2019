@@ -4,6 +4,7 @@ import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 import AddBuilding from './components/AddBuilding';
+import RemoveBuilding from './components/RemoveBuilding';
 
 class App extends React.Component {
   constructor(props) {
@@ -53,9 +54,19 @@ class App extends React.Component {
       // console.log(data[length-1]);
   }
     delete(id) {
-      let data = this.state.data;
-      let filterData = data.filter(building => building.id !== id);
-      this.setState({ data: filterData });
+      console.log(id)
+      console.log(this.state.data)
+      this.setState({
+        data: this.state.data
+          .filter(building => {
+            return building.id !== id
+          })
+      })
+      console.log(this.state.data)
+      // let data = this.state.data;
+      // let filterData = data.filter(building => building.id !== id);
+      // this.setState({ data: filterData });
+      // console.log(data);
   }
 
   render() {
@@ -77,7 +88,7 @@ class App extends React.Component {
                     </td>
                   </tr>
                   <BuildingList
-                    data={this.props.data}
+                    data={this.state.data}
                     delete={this.delete.bind(this)}
                     filterText={this.state.filterText}
                     selectedUpdate={this.selectedUpdate.bind(this)}
@@ -91,6 +102,11 @@ class App extends React.Component {
                 data={this.props.data}
               />
               <AddBuilding add={this.add.bind(this)} />
+              <RemoveBuilding 
+                data={this.props.data}
+                building = {this.state.selectedBuildingID}
+                removeBuilding={this.delete.bind(this)}
+               />
             </div>
           </div>
           <Credit />

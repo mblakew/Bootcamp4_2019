@@ -44,7 +44,7 @@ class AddBuilding extends React.Component {
                     placeholder="Building Longitude"
                     ref={value => {this.longitude=value;}}
                 />
-                <p><font color="red">Fill out all the fields and then submit</font></p>
+                <p><font color="green">Fill out all the fields and then submit</font></p>
                 <button onClick={() => this.submitHandler()}>submit</button>
             </div>
         );

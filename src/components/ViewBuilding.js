@@ -2,39 +2,34 @@ import React from 'react';
 
 class ViewBuilding extends React.Component {
     render() {
-        const { selectedBuildingID, data } = this.props;
-        let blah;
-        
-        
-        if (selectedBuildingID == 0) {
-            blah = <i>Click on a name to view more information...</i>;
+        let myvar;
+        const { selectedBuildingID, data } = this.props;        
+        if (selectedBuildingID === 0) {
+            myvar = <i>Select a building</i>;
         }
         else {
-            var concaObject = [];
+            var myvar2 = [];
 
-            const selectedBoi = data.find(e => e.id == selectedBuildingID)
+            const building = data.find(b => b.id === selectedBuildingID)
 
-            Object.keys(selectedBoi).map((key) => {
-                if (key == "coordinates") {
-                    concaObject.push(<li><text className="whiteSpaceNoWrap">latitude: </text><text className="whiteSpaceNoWrap">{selectedBoi[key].latitude}</text></li>)
-                    concaObject.push(<li><text className="whiteSpaceNoWrap">longitude: </text><text className="whiteSpaceNoWrap">{selectedBoi[key].longitude}</text></li>)
-
-
+            Object.keys(building)
+            .map((k) => {
+                if (k !== "coordinates") {
+                    myvar2.push(<li><text className="">{k}</text><text className="whiteSpaceNoWrap">: </text><text className="whiteSpaceNoWrap">{building[k]}</text></li>)
                 }
                 else {
-                    concaObject.push(<li><text className="whiteSpaceNoWrap">{key}</text><text className="whiteSpaceNoWrap">: </text><text className="whiteSpaceNoWrap">{selectedBoi[key]}</text></li>)
-
-                    
+                    myvar2.push(<li><text className="whiteSpaceNoWrap">latitude: </text><text className="whiteSpaceNoWrap">{building[k].latitude}</text></li>)
+                    myvar2.push(<li><text className="whiteSpaceNoWrap">longitude: </text><text className="whiteSpaceNoWrap">{building[k].longitude}</text></li>)
                 }
             })
-            blah = concaObject;
+            myvar = myvar2;
 
         }
         return (
             
             <div>
                 <p>
-                    {blah}
+                    {myvar}
                 </p>
             </div>
         );
