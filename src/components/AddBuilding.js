@@ -18,7 +18,7 @@ class AddBuilding extends React.Component {
     }
     render() {
         return (
-            <div className='popup'>
+            <div>
                 <input
                     type="text"
                     placeholder="Building Code"
@@ -44,7 +44,9 @@ class AddBuilding extends React.Component {
                     placeholder="Building Longitude"
                     ref={value => {this.longitude=value;}}
                 />
-                <p><font color="green">Fill out all the fields and then submit</font></p>
+                <p>
+                    <font color="green">Fill all fields out</font>
+                </p>
                 <button onClick={() => this.submitHandler()}>submit</button>
             </div>
         );

@@ -15,11 +15,11 @@ class ViewBuilding extends React.Component {
             Object.keys(building)
             .map((k) => {
                 if (k !== "coordinates") {
-                    myvar2.push(<li><text className="">{k}</text><text className="whiteSpaceNoWrap">: </text><text className="whiteSpaceNoWrap">{building[k]}</text></li>)
+                    myvar2.push(<li><text>{k}</text><text>: </text><text>{building[k]}</text></li>)
                 }
                 else {
-                    myvar2.push(<li><text className="whiteSpaceNoWrap">latitude: </text><text className="whiteSpaceNoWrap">{building[k].latitude}</text></li>)
-                    myvar2.push(<li><text className="whiteSpaceNoWrap">longitude: </text><text className="whiteSpaceNoWrap">{building[k].longitude}</text></li>)
+                    myvar2.push(<li><text>latitude: </text><text>{building[k].latitude}</text></li>)
+                    myvar2.push(<li><text>longitude: </text><text>{building[k].longitude}</text></li>)
                 }
             })
             myvar = myvar2;

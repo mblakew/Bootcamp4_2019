@@ -2,7 +2,8 @@ import React from 'react';
 
 class BuilingList extends React.Component {
 	render() {
-		//console.log('This is my directory file', this.props.data);
+		//console.log('here i am');
+		//console.log(this.props.data);
 		const { data, filterText } = this.props;
 
 		const buildingList = data
